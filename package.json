@@ -8,7 +8,8 @@
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "start": "node ./bin/www",
-    "start-dev": "nodemon index.js"
+    "start-dev": "nodemon index.js",
+    "coverage": "npm run pretest  && jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -19,6 +20,7 @@
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
+    "coveralls": "^3.0.9",
     "cross-env": "^6.0.3",
     "jest": "^24.9.0",
     "supertest": "^4.0.2"
